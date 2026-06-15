@@ -1,0 +1,15 @@
+class Solution:
+    def reorderLogFiles(self, logs: List[str]) -> List[str]:
+        letter_logs = []
+        digit_logs = []
+        for i in logs:
+            parts=i.split(" ",1)
+            if parts[1][0].isdigit():  
+                digit_logs.append(i)
+            else:
+                letter_logs.append(i)
+        def sort_key(x: str):
+            iden,con=x.split(" ",1)
+            return (con,iden)
+        letter_logs.sort(key=sort_key)
+        return letter_logs+digit_logs
