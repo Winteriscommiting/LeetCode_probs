@@ -1,0 +1,8 @@
+class Solution:
+    def subtractProductAndSum(self, n: int) -> int:
+        s=str(n)
+        s1=sum([int(i) for i in s])
+        p1=1
+        for i in s:
+            p1*=int(i)
+        return p1-s1
