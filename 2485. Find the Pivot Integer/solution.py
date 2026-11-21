@@ -1,0 +1,8 @@
+class Solution:
+    def pivotInteger(self, n: int) -> int:
+        s=n*(n+1)//2
+        sr=math.sqrt(s)
+        if sr-math.ceil(sr)==0:
+            return int(sr)
+        return -1
+        
