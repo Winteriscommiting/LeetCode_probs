@@ -1,0 +1,28 @@
+class Solution:
+    def processStr(self, s: str, k: int) -> str:
+        c=0
+        for i in s:
+            if i=='*':
+                c=max(0,c-1)
+            elif i=='#':
+                c*=2
+            elif i!='%':
+                c+=1
+        if k>=c:
+            return '.'
+        for a in s[::-1]:
+            if a=='*':
+                c+=1
+            elif a=='#':
+                b=c//2
+                if k>=b:
+                    k-=b
+                c=b
+            elif a=='%':
+                k=c-1-k
+            else:
+                if k==c-1:
+                    return a
+                c-=1
+        return '.'
+        
